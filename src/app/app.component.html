@@ -1,0 +1,34 @@
+
+<h1>Hello</h1>
+<div class="col-md-8">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-6 col-lg-8">
+          <button type="button" class="btn btn-secondary btn-lg btn-responsive" *ngFor="let item of uploader.queue">
+              <span class="glyphicon glyphicon-remove-circle btn-span" (click)="item.remove()"></span>{{item.file.name}}
+          </button>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="grid-container">
+        <div ng2FileDrop
+            [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+            (fileOver)="fileOverBase($event)"
+            [uploader]="uploader"
+            class="grid-item">
+            <span class="glyphicon glyphicon-picture drag"></span>
+            <br>
+            <h4>Drag & Drop Image</h4>
+        </div>
+        <div class="fileContainer">
+            <span class="glyphicon glyphicon-paperclip drag"></span>
+            <br>
+            <h4 class="underline"> Attach</h4>
+            <input type="file" name="single" ng2FileSelect [uploader]="uploader" />                                  
+        </div>
+    </div>
+  </div>
+</div>
